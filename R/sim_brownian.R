@@ -4,14 +4,14 @@
 #'
 #' @title
 #' @param trees_sim
-sim_brownian <- function(trees_sim) {
+sim_brownian <- function(trees_sim, rate) {
 
   sim <- sim.char(trees_sim[[1]]$tree,
-                         1)
+                         rate[[1]])
   # sims <- map(trees_sim,
   #             ~ sim.char(.x$tree,
   #                        1))
-  
+
   sim
 
 }

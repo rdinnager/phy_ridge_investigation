@@ -11,7 +11,8 @@ sim_tree <- function() {
                     sigma_lamb = 0.25)
   #plot(test$tree)
   tree$tree$edge.length <- tree$tree$edge.length / max(vcv(tree$tree))
-  
+  tree$tree$tip.label <- paste0("t", tree$tree$tip.label)
+
   tree
 
 }
