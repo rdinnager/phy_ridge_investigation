@@ -92,6 +92,8 @@ crits <- function(fit, x, y, alpha = 1, penalty.factor = NULL){
   aic <- -tLL + 2 * k
   bic <- log(n) * k - tLL
 
+  bic_l <- bic + 1.05 * lchoose(ncol(x), k)
+
   # k <- df2 + 1
   # aicc2 <- -tLL + 2 * k + 2 * k * (k + 1) / (n - k - 1)
   # aic2 <- -tLL + 2 * k
@@ -99,7 +101,7 @@ crits <- function(fit, x, y, alpha = 1, penalty.factor = NULL){
 
   rate_est <- (sigma^2) / (lambda * n)
 
-  list(bic = bic, aic = aic, aicc = aicc, sigma = sigma, df = df,
+  list(bic = bic, aic = aic, aicc = aicc, bic_l = bic_l, sigma = sigma, df = df,
        mse = mse, rate_est = rate_est, loocv = loocv)
 }
 
